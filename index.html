@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falls Church waste guide | city rules · curb limits · I-66 Transfer Station</title>
+    <!-- Inter font (clean, modern, highly readable) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (free) for icons and animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #d4e9e0 0%, #b8ded2 100%);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: #1e3b2c;
+            padding: 2rem 1.2rem;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: coastalWave 15s infinite alternate ease-in-out;
+        }
+
+        @keyframes coastalWave {
+            0% { background: #d4e9e0; }
+            50% { background: #c0e0d6; }
+            100% { background: #a8d0c4; }
+        }
+
+        /* main card – clean, elevated, with float animation */
+        .fallschurch-card {
+            max-width: 1200px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
+            border-radius: 44px;
+            box-shadow: 0 30px 45px -15px rgba(20, 80, 70, 0.3);
+            padding: 3rem 2.8rem;
+            transition: all 0.3s ease;
+            animation: cardFloat 6s infinite alternate ease-in-out;
+            border: 1px solid rgba(255,255,255,0.4);
+        }
+
+        @keyframes cardFloat {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-8px); }
+        }
+
+        h1 {
+            font-size: 2.6rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            color: #1e6b5e;
+            margin-bottom: 0.4rem;
+            border-left: 6px solid #2f9e8c;
+            padding-left: 1.5rem;
+            animation: glowPulse 2.5s infinite, slideIn 0.8s ease-out;
+        }
+
+        @keyframes glowPulse {
+            0% { text-shadow: 0 0 2px rgba(47,158,140,0.3); }
+            50% { text-shadow: 0 0 12px rgba(47,158,140,0.7); }
+            100% { text-shadow: 0 0 2px rgba(47,158,140,0.3); }
+        }
+
+        @keyframes slideIn {
+            0% { opacity: 0; transform: translateX(-20px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        .subhead {
+            font-size: 1.2rem;
+            color: #3b7b6e;
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+            padding-left: 2rem;
+            border-left: 2px solid #aad0c4;
+            animation: softBlink 3s infinite, fadeIn 1s ease-out;
+        }
+
+        @keyframes softBlink {
+            0% { opacity: 1; border-left-color: #aad0c4; }
+            50% { opacity: 0.85; border-left-color: #6fcbbb; }
+            100% { opacity: 1; border-left-color: #aad0c4; }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        p {
+            margin-bottom: 1.6rem;
+            color: #2a5b4c;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* link styling (for interlinks only at end) */
+        a {
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.15s ease;
+            border-bottom: 1px solid transparent;
+        }
+
+        .text-link {
+            color: #1e6b5e;
+            border-bottom: 1px solid #b8dfd3;
+        }
+        .text-link:hover {
+            color: #0f5549;
+            border-bottom-color: #0f5549;
+        }
+
+        /* interlink styles – badge-like, with gentle pulse (only used at end) */
+        .junk-badge, .review-badge {
+            display: inline-flex;
+            align-items: center;
+            background: #edf5f0;
+            border-radius: 60px;
+            padding: 0.25rem 1.1rem 0.25rem 0.7rem;
+            margin: 0 0.1rem;
+            font-size: 0.9rem;
+            border: 1px solid #c0ddd2;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            color: #1e6b5e;
+            animation: badgeGlow 2.2s infinite;
+        }
+
+        @keyframes badgeGlow {
+            0% { box-shadow: 0 0 2px rgba(47,158,140,0.3); }
+            50% { box-shadow: 0 0 10px rgba(47,158,140,0.6); }
+            100% { box-shadow: 0 0 2px rgba(47,158,140,0.3); }
+        }
+
+        .junk-badge i, .review-badge i {
+            margin-right: 6px;
+            font-size: 0.85rem;
+            color: #2f9e8c;
+        }
+        .junk-badge:hover, .review-badge:hover {
+            background: #d9ede5;
+            border-color: #70bbaa;
+            transform: scale(1.05);
+        }
+
+        /* option cards */
+        .option-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            margin: 2.5rem 0 2rem;
+        }
+
+        .option-card {
+            background: rgba(249, 252, 250, 0.9);
+            backdrop-filter: blur(4px);
+            border-radius: 34px;
+            padding: 2rem 1.8rem;
+            border: 1px solid rgba(190, 215, 204, 0.6);
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 20px -8px rgba(30, 80, 70, 0.1);
+            animation: cardAppear 0.8s ease-out, cardPulse 3.5s infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes cardAppear {
+            0% { opacity: 0; transform: scale(0.95); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes cardPulse {
+            0% { box-shadow: 0 0 5px rgba(47,158,140,0.2); }
+            50% { box-shadow: 0 0 20px rgba(47,158,140,0.3); }
+            100% { box-shadow: 0 0 5px rgba(47,158,140,0.2); }
+        }
+
+        .option-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(47,158,140,0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            pointer-events: none;
+        }
+
+        .option-card:hover::before {
+            opacity: 1;
+        }
+
+        .option-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 30px 35px -12px rgba(30, 107, 94, 0.25);
+            border-color: #9dcfc2;
+        }
+
+        .option-icon {
+            font-size: 2.5rem;
+            color: #2f9e8c;
+            margin-bottom: 1rem;
+            animation: iconSpin 12s infinite linear;
+        }
+
+        @keyframes iconSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .option-card h3 {
+            font-size: 1.7rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: #1e6b5e;
+        }
+
+        .option-card p {
+            font-size: 0.98rem;
+            margin-bottom: 1rem;
+            color: #2b6b5c;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+        .feature-list li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+        }
+        .feature-list i {
+            color: #2f9e8c;
+            width: 1.4rem;
+            margin-top: 0.2rem;
+        }
+
+        .badge-opt {
+            background: #e0f2eb;
+            border-radius: 50px;
+            padding: 0.4rem 1.2rem;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            color: #1e6b5e;
+            border: 1px solid #b8dfd3;
+            animation: softGlow 2.5s infinite;
+        }
+
+        @keyframes softGlow {
+            0% { background: #e0f2eb; }
+            50% { background: #c9e9df; }
+            100% { background: #e0f2eb; }
+        }
+
+        /* city resources block */
+        .city-block {
+            background: rgba(242, 247, 241, 0.9);
+            backdrop-filter: blur(4px);
+            border-radius: 32px;
+            padding: 2.2rem 2.5rem;
+            margin: 2.5rem 0 2rem;
+            border-left: 6px solid #2f9e8c;
+            animation: slideInRight 0.9s ease-out, borderGlow 2.5s infinite;
+        }
+
+        @keyframes slideInRight {
+            0% { opacity: 0; transform: translateX(20px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes borderGlow {
+            0% { border-left-color: #2f9e8c; }
+            50% { border-left-color: #7fd7c5; }
+            100% { border-left-color: #2f9e8c; }
+        }
+
+        .city-block h2 {
+            font-size: 2rem;
+            font-weight: 500;
+            color: #1e6b5e;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 1.2rem;
+        }
+
+        .city-list {
+            list-style: none;
+        }
+        .city-list li {
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            animation: listFade 0.5s ease-out;
+        }
+        .city-list i {
+            color: #2f9e8c;
+            width: 2rem;
+            font-size: 1.3rem;
+            margin-top: 0.2rem;
+        }
+
+        /* i-66 transfer station block */
+        .transfer-block {
+            background: rgba(245, 250, 247, 0.9);
+            backdrop-filter: blur(4px);
+            border-radius: 30px;
+            padding: 2rem 2.2rem;
+            margin: 2rem 0;
+            animation: fadeInScale 0.8s ease-out;
+        }
+
+        @keyframes fadeInScale {
+            0% { opacity: 0; transform: scale(0.95); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .transfer-block h3 {
+            font-size: 1.7rem;
+            color: #1e6b5e;
+            margin-bottom: 1rem;
+        }
+
+        .stats-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        .stat-item {
+            background: white;
+            border-radius: 28px;
+            padding: 1rem 1.5rem;
+            border: 1px solid #c7d9c1;
+            animation: statPulse 3s infinite;
+        }
+        @keyframes statPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        /* resource block for interlinks */
+        .resource-note {
+            background: rgba(226, 241, 235, 0.9);
+            backdrop-filter: blur(4px);
+            border-radius: 28px;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            animation: pulseGlow 2.5s infinite;
+            text-align: center;
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 5px rgba(47,158,140,0.2); }
+            50% { box-shadow: 0 0 20px rgba(47,158,140,0.4); }
+            100% { box-shadow: 0 0 5px rgba(47,158,140,0.2); }
+        }
+
+        /* footer */
+        .footer-links {
+            border-top: 1px dashed #c9e0d6;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            color: #3b7b6e;
+            font-size: 0.95rem;
+            animation: fadeIn 1.2s ease-out;
+        }
+        .link-group {
+            display: flex;
+            gap: 0.5rem 1.2rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        @media (max-width: 600px) {
+            .fallschurch-card { padding: 2rem 1.5rem; }
+            h1 { font-size: 2rem; }
+        }
+
+        /* floating particles effect */
+        .particle {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: rgba(47,158,140,0.15);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+            animation: floatParticle 18s infinite linear;
+        }
+        @keyframes floatParticle {
+            0% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { transform: translateY(-100vh) translateX(20vw); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- floating particles (ambient) -->
+    <div class="particle" style="left:5%; top:10%; animation-delay:0s;"></div>
+    <div class="particle" style="left:25%; top:80%; animation-delay:4s;"></div>
+    <div class="particle" style="left:70%; top:30%; animation-delay:2s;"></div>
+    <div class="particle" style="left:90%; top:70%; animation-delay:6s;"></div>
+    <div class="particle" style="left:45%; top:95%; animation-delay:3s;"></div>
+    <div class="particle" style="left:15%; top:40%; animation-delay:7s;"></div>
+
+    <div class="fallschurch-card">
+        <h1>🏡 A Homeowner’s Guide to Waste Disposal in Falls Church: City Rules, Curb Limits, and Local Facilities</h1>
+        <div class="subhead">Curbside pickup · bulk item limits · I-66 Transfer Station · professional hauling</div>
+
+        <!-- intro – no interlinks here, all at the end -->
+        <p>
+            <i class="fa-regular fa-compass" style="color:#2f9e8c; margin-right:6px;"></i> 
+            Living in "The Little City" has many perks—walkable streets, a strong sense of community, and proximity to everything. But with older homes and tight lots, waste disposal can be a challenge. 
+            Falls Church has specific rules about what you can leave at the curb, limits on bulk items, and local facilities for self‑haul. 
+            This guide helps you navigate your options, with insights from local experts like <strong>Wee Haul Junk Removal</strong>.
+        </p>
+
+        <!-- option cards -->
+        <div class="option-grid">
+            <div class="option-card">
+                <div class="option-icon"><i class="fa-regular fa-trash-can"></i></div>
+                <h3>Curbside Pickup (City of Falls Church)</h3>
+                <p>Weekly collection for single‑family homes. Provided by the City's Public Works Department.</p>
+                <ul class="feature-list">
+                    <li><i class="fa-regular fa-circle-check"></i> Accepts: household trash, recycling (paper, plastic, glass, metal)</li>
+                    <li><i class="fa-regular fa-circle-check"></i> Bulk items: up to 3 large items per collection day (by appointment)</li>
+                    <li><i class="fa-regular fa-circle-check"></i> Not accepted: electronics, hazardous waste, construction debris</li>
+                </ul>
+                <span class="badge-opt"><i class="fa-regular fa-clock"></i> Weekly service</span>
+            </div>
+            <div class="option-card">
+                <div class="option-icon"><i class="fa-regular fa-building"></i></div>
+                <h3>I-66 Transfer Station & Recycling Center</h3>
+                <p>Located at 4618 W. Ox Rd, Fairfax. The primary self‑haul facility for Falls Church residents.</p>
+                <ul class="feature-list">
+                    <li><i class="fa-regular fa-circle-check"></i> Accepts: trash, recycling, electronics, appliances, yard waste</li>
+                    <li><i class="fa-regular fa-circle-check"></i> Fees based on weight/volume (cash/credit)</li>
+                    <li><i class="fa-regular fa-circle-check"></i> Proof of residency may be required</li>
+                </ul>
+                <span class="badge-opt"><i class="fa-regular fa-clock"></i> Open daily</span>
+            </div>
+            <div class="option-card">
+                <div class="option-icon"><i class="fa-regular fa-truck"></i></div>
+                <h3>Professional Junk Removal</h3>
+                <p>Full‑service hauling where a crew does all the lifting and loading. Ideal for bulky items, large cleanouts, or when you lack time or a truck.</p>
+                <ul class="feature-list">
+                    <li><i class="fa-regular fa-circle-check"></i> Same‑day/next‑day service available</li>
+                    <li><i class="fa-regular fa-circle-check"></i> Eco‑friendly sorting (recycling & donation)</li>
+                    <li><i class="fa-regular fa-circle-check"></i> No heavy lifting for you</li>
+                </ul>
+                <span class="badge-opt"><i class="fa-regular fa-clock"></i> 1–3 hour project</span>
+            </div>
+        </div>
+
+        <!-- city resources deep dive -->
+        <div class="city-block">
+            <h2><i class="fa-regular fa-map-pin"></i> Falls Church City Rules & Resources</h2>
+            <ul class="city-list">
+                <li><i class="fa-regular fa-circle-1"></i> <strong>Curbside Bulk Item Pickup:</strong> Falls Church residents can schedule pickup of up to 3 large items per collection day. Call Public Works at (703) 248‑5050. Items like furniture, appliances (freon must be removed), and mattresses are accepted. Must be at the curb by 7am.</li>
+                <li><i class="fa-regular fa-circle-2"></i> <strong>Yard waste:</strong> Collected weekly on trash day. Must be in paper bags or reusable containers. Branches must be tied in bundles under 4 feet.</li>
+                <li><i class="fa-regular fa-circle-3"></i> <strong>Recycling:</strong> Single‑stream recycling accepted. No plastic bags, styrofoam, or hazardous waste.</li>
+                <li><i class="fa-regular fa-circle-4"></i> <strong>Hazardous waste:</strong> Not accepted curbside. Falls Church residents can use the <strong>I-66 Transfer Station's HHW drop‑off</strong> (by appointment).</li>
+            </ul>
+        </div>
+
+        <!-- I-66 transfer station block -->
+        <div class="transfer-block">
+            <h3><i class="fa-regular fa-map"></i> I-66 Transfer Station & Recycling Center</h3>
+            <p><strong>Address:</strong> 4618 W. Ox Rd, Fairfax, VA 22030<br>
+            <strong>Hours:</strong> Daily 8am – 4pm (closed major holidays)<br>
+            <strong>Accepts:</strong> Household trash, single‑stream recycling, electronics, appliances, scrap metal, yard waste, tires, and HHW (by appointment).<br>
+            <strong>Fees:</strong> Minimum fee ~$10, then per ton. Cash and credit accepted.</p>
+            <p><em>Note:</em> Falls Church residents may need to show proof of residency (driver's license or utility bill).</p>
+            <div class="stats-row">
+                <div class="stat-item"><i class="fa-regular fa-chart-line"></i> <strong>3x</strong> bulk items per pickup</div>
+                <div class="stat-item"><i class="fa-regular fa-chart-line"></i> <strong>7am</strong> curb deadline</div>
+            </div>
+        </div>
+
+        <!-- comparison & when to choose professional -->
+        <div style="background: rgba(236, 248, 242, 0.9); backdrop-filter: blur(4px); border-radius: 28px; padding: 1.5rem 2rem; margin: 2rem 0; animation: fadeInScale 0.8s;">
+            <h4 style="color:#1e6b5e;"><i class="fa-regular fa-clipboard"></i> When Professional Hauling Makes Sense</h4>
+            <ul style="margin-left: 1.5rem;">
+                <li><strong>Estate cleanouts / whole house:</strong> Mixed items—furniture, appliances, decades of accumulation. A crew can clear it in a day.</li>
+                <li><strong>Renovation debris:</strong> Drywall, lumber, tile—heavy and bulky. Professionals haul it directly, saving multiple trips.</li>
+                <li><strong>Heavy/bulky items:</strong> Hot tubs, sheds, large appliances—require special handling and equipment.</li>
+                <li><strong>No truck/no time:</strong> When you can't lift or don't have a way to haul.</li>
+                <li><strong>Eco‑conscious disposal:</strong> Companies like <strong>Wee Haul</strong> sort for recycling and donation, reducing landfill waste.</li>
+            </ul>
+        </div>
+
+        <!-- all interlinks placed here at the end, as requested -->
+        <div class="resource-note">
+            <h4 style="color:#1e6b5e; margin-bottom: 1rem;">Get trusted local help with your cleanup</h4>
+            <p>
+                <a href="https://weehaulnow.com/" target="_blank" rel="noopener" class="junk-badge"><i class="fa-regular fa-truck"></i>Junk Removal</a>
+                <a href="https://g.co/kgs/tXTWL83" target="_blank" rel="noopener" class="review-badge"><i class="fa-regular fa-location-dot"></i> check reviewsFree estimate</a>
+            </p>
+        </div>
+
+        <!-- footer links – duplicate for consistency, but primary interlinks are above -->
+        <div class="footer-links">
+            <span><i class="fa-regular fa-recycle"></i> falls church · waste guide · curbside · transfer station</span>
+            <div class="link-group">
+                <a href="https://weehaulnow.com/" target="_blank" rel="noopener" class="junk-badge"><i class="fa-regular fa-truck"></i>Junk Removal</a>
+                <a href="https://g.co/kgs/tXTWL83" target="_blank" rel="noopener" class="review-badge"><i class="fa-regular fa-location-dot"></i> check reviewsFree estimate</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
